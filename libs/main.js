@@ -1,7 +1,7 @@
 (function($) {
 	"use strict"
 
-	// Fix cart dropdown from closing
+	// Arreglar el menú desplegable del carrito para que no se cierre
 	$('.cart-dropdown').on('click', function (e) {
 		e.stopPropagation();
 	});
