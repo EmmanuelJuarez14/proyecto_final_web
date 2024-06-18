@@ -1,13 +1,14 @@
 <?php
-#this is Login form page , if user is already logged in then we will not allow user to access this page by executing isset($_SESSION["uid"])
-#if below statment return true then we will send user to their profile.php page
-//in action.php page if user click on "ready to checkout" button that time we will pass data in a form from action.php page
+#esta es la página del formulario de inicio de sesión, si el usuario ya inició sesión, no le permitiremos acceder a esta página ejecutando 
+#isset($_SESSION["uid"]) si la siguiente declaración es verdadera, enviaremos al usuario a su página perfil.php
+//en la página action.php, si el usuario hace clic en el botón "listo para pagar", en ese momento pasaremos los datos en un formulario 
+//desde la página action.php
 if (isset($_POST["login_user_with_product"])) {
-	//this is product list array
+	//esta es el arreglo de la lista de productos
 	$product_list = $_POST["product_id"];
-	//here we are converting array into json format because array cannot be store in cookie
+	//aquí estamos convirtiendo el arreglo al formato json porque el arreglo no se puede almacenar en una cookie
 	$json_e = json_encode($product_list);
-	//here we are creating cookie and name of cookie is product_list
+	//aquí estamos creando una cookie y el nombre de la cookie es product_list
 	setcookie("product_list",$json_e,strtotime("+1 day"),"/","","",TRUE);
 
 }

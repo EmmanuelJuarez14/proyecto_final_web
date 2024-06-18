@@ -75,6 +75,19 @@
 		<script src="libs/script.js"></script>
 		<script src="libs/formLogin.js"></script>
 
+		<!-- Script para cerrar modal de registro en caso de que se tenga una cuenta -->
+		<script>
+			$(document).ready(function() {
+				$('#openLoginModal').on('click', function(e) {
+					e.preventDefault();
+					$('#Modal_register').modal('hide');
+					$('#Modal_register').on('hidden.bs.modal', function() {
+						$(this).off('hidden.bs.modal'); // Elimina el listener para evitar comportamiento inesperado en el futuro
+					});
+				});
+			});
+		</script>
+
 		<script>var c = 0;
         function menu(){
           if(c % 2 == 0) {
